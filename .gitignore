@@ -1,0 +1,8 @@
+/bin/
+.classpath
+.gradle/
+.metadata/
+.project
+.settings/
+build/
+saveFile.txt

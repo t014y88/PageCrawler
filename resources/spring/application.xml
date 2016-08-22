@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="pageParser" class="com.pagecrawler.parser.MultiThreadedPageParser">
+		<constructor-arg ref="urlProvider" />
+		<constructor-arg ref="storage"/>
+		<property name="numberOfThreads" value="5"/>
+	</bean>
+	
+	<bean id="urlProvider" class="com.pagecrawler.urlprovider.InMemoryProvider" />
+	
+	<bean id="storage" class="com.pagecrawler.storage.FileStorage">
+		<constructor-arg value="saveFile.txt" />
+	</bean>
+	
+</beans>
